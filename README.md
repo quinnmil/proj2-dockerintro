@@ -47,3 +47,66 @@ A "getting started" manual for Dockers. CIS 322, Introduction to Software Engine
   docker rename name_v0 name_v1
   ~~~~
 
+# Creating images
+
+* Create a Dockerfile. The name is case sensitive and it has to be "Dockerfile"
+
+  ~~~~
+  vim Dockerfile
+  ~~~~
+
+* FROM command specifies the base image you are going to use build your dockerfile and your new image. It's can an existing image, like ubuntu, alpine, debian, etc.
+
+  ~~~~
+   FROM ubuntu
+  ~~~~
+
+* CMD command specifies all the commands you need to run
+
+  ~~~~
+   CMD echo hello world
+  ~~~~
+
+* Build the image with folder name ("." in this case)
+
+  ~~~~
+   docker build .
+  ~~~~
+
+* Output
+
+  ~~~~
+  Sending build context to Docker daemon  2.048kB
+  Step 1/2 : FROM alpine
+  latest: Pulling from library/alpine
+  ff3a5c916c92: Pull complete
+  Digest: sha256:7df6db5aa61ae9480f52f0b3a06a140ab98d427f86d8d5de0bedab9b8df6b1c0
+  Status: Downloaded newer image for alpine:latest
+  ---> 3fd9065eaf02
+  Step 2/2 : CMD ["echo hello world"]
+  ---> Running in 48cd3d25065d
+  Removing intermediate container 48cd3d25065d
+  ---> e2e741ea5f6f
+  Successfully built e2e741ea5f6f
+  ~~~~
+
+6) Run the image using the image ID ("e2e741ea5f6f" in this case) and a test
+name of your choice
+
+  ~~~~
+  docker run --name <test name> e2e741ea5f6f
+  ~~~~
+
+7) List images using
+
+  ~~~~
+  sudo docker images
+  ~~~~
+
+9) Remove images using
+
+  ~~~~
+  docker rmi <Image ID>
+  ~~~~
+
+
