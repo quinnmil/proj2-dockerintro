@@ -148,5 +148,5 @@ name of your choice
   * "404.html" will display "File not found!"
   * "403.html" will display "File is forbidden!"
 
-* You will submit your credentials.ini in canvas. It should have information on how we should get your Dockerfile. 
+* You will submit your credentials.ini in canvas. It should have information on how we should get your Dockerfile and your git repo. 
 
