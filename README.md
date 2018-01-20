@@ -47,6 +47,18 @@ A "getting started" manual for Dockers. CIS 322, Introduction to Software Engine
   docker rename name_v0 name_v1
   ~~~~
 
+* Start a container using
+
+  ~~~~
+  docker start <container name>
+  ~~~~
+
+* Stop a container using
+
+  ~~~~
+  docker start <container name>
+  ~~~~
+
 # Creating images
 
 * Create a Dockerfile. The name is case sensitive and it has to be "Dockerfile"
@@ -90,23 +102,51 @@ A "getting started" manual for Dockers. CIS 322, Introduction to Software Engine
   Successfully built e2e741ea5f6f
   ~~~~
 
-6) Run the image using the image ID ("e2e741ea5f6f" in this case) and a test
+* Run the image using the image ID ("e2e741ea5f6f" in this case) and a test
 name of your choice
 
   ~~~~
   docker run --name <test name> e2e741ea5f6f
   ~~~~
 
-7) List images using
+* List images using
 
   ~~~~
   sudo docker images
   ~~~~
 
-9) Remove images using
+* Remove images using
 
   ~~~~
   docker rmi <Image ID>
   ~~~~
 
+# Getting started on the flask project
+
+* Go to the web folder in the repository. Read every line of the docker file and the simple flask app.
+
+* Build the simple flask app image using
+
+  ~~~
+  docker build -t UOCIS-flask-demo .
+  ~~~
+  
+* Run the container using
+  
+  ~~~
+  docker run -d -p 5000:5000 UOCIS-flask-demo
+  ~~~
+
+* Launch http://127.0.0.1:5000 using web broweser and check the output "UOCIS docker demo!"
+
+# Tasks
+
+* The goal of this project is to implement the same "file checking" logic that you implemented in project 1 using flask. 
+
+* Like project 1, if a file ("name.html") exists, transmit "200/OK" header followed by that file html. If the file doesn't exist, transmit an error code in the header along with the appropriate page html in the body. You'll do this by creating error handlers taught in class. You'll also create the following two html files with the error messages. 
+
+** "404.html" will display "File not found!"
+** "403.html" will display "File is forbidden!"
+
+* You will submit your credentials.ini in canvas. It should have information on how we should get your Dockerfile. 
 
