@@ -125,16 +125,16 @@ name of your choice
 
 * Go to the web folder in the repository. Read every line of the docker file and the simple flask app.
 
-* Build the simple flask app image using
+* Build the simple flask app image using the following command. Note the "." at the end of the command; you should run the command pointing to the path in which Dockerfile is present. 
 
   ~~~
-  docker build -t UOCIS-flask-demo .
+  docker build -t <container name> .
   ~~~
   
 * Run the container using
   
   ~~~
-  docker run -d -p 5000:5000 UOCIS-flask-demo
+  docker run -d -p 5000:5000 <container name>
   ~~~
 
 * Launch http://127.0.0.1:5000 using web broweser and check the output "UOCIS docker demo!"
